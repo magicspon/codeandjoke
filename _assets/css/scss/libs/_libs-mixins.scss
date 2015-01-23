@@ -1,0 +1,44 @@
+/*
+    File: _assets/css/scss/_libs-mixins.scss
+        Preference for third-party mixin libraries is to use Bourbon
+        See https://github.com/thoughtbot/bourbon
+*/
+
+//  Heleprs
+
+
+// Typography
+
+
+@mixin font-type($font: 'base') {
+  @if $font == bold {
+    font-family:"FS Albert Web Bold", sans-serif; font-weight:bold; 
+  } @else if $font == italic {
+    font-family:"FS Albert Web Light Italic", sans-serif; font-weight:200; font-style:italic; 
+  } @else if $font == thin {
+    font-family:"FS Albert Web Thin", sans-serif; font-weight:100;
+  } @else if $font == light {
+    font-family:"FS Albert Web Light", sans-serif; font-weight:200; 
+  } @else  {
+    font-family:"FS Albert Web Light", sans-serif; font-weight:200;
+  }
+}
+
+@mixin heading-sizes($list: 1 2 3 4 5 6) {
+  $size: null;
+  @each $i in $list {
+    $heading: h#{$i};
+    $size: fs($heading);
+
+    h#{$i},
+    .heading-#{$i},
+    %heading-#{$i}{
+        @include font-size($size, false);
+    }
+  }
+}
+
+// Layout
+
+
+   
