@@ -13,7 +13,7 @@
 // Typography
 
     $base-font-size:                16;
-    $base-line-height:              22;
+    $base-line-height:              6;
     $rhythm-base-font-size:         18px;
     $rhythm-unit:                   rem;
     $browser-default-font-size:     16;
@@ -70,11 +70,11 @@
     $comment-border: #E4E2E0;
     
 
-
+    $brand: #78417F;
 // Colours
 
     $white                  :#fff;
-    $black                  :#000;
+    $black                  :#111;
     // http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
     // use eg palette(accent,light)
     $palettes: (
@@ -153,6 +153,8 @@
         intro:          24,
         signup:         16
     );     
+
+    $base-font: "raleway",sans-serif;
 
 // Layout
 

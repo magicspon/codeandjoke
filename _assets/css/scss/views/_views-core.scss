@@ -28,13 +28,50 @@
 //
 //
 
+@include keyframes(bg) {
+    0%{
+    	background-size:500% 500%;
+    }
+    50%{
+    	background-size:1000% 1000%;
+    }
+    100%{
+    	background-size:500% 500%;
+    }
+}
+
+
+// @include keyframes(grow) {
+//     0%{
+//     	@include transform(scale(1));
+//     }
+//     50%{
+//     	@include transform(scale(0));
+//     }
+//     100%{
+//     	@include transform(scale(1));
+//     }
+// }
+
+
+// @include keyframes(expand){
+//     0%{
+//     	letter-spacing: 0;
+//     }
+//     100%{
+//     	letter-spacing: 50px;
+//     }
+// }
+
 html {
     font-size: $base-font-size / $browser-default-font-size + em; 
     line-height: $base-line-height / $base-font-size; 
 }
 
 // === 1.  Baseline
-body {}
+body {
+	font-family: "raleway",sans-serif;
+}
 
 .wrapper {}
 
@@ -72,7 +109,74 @@ h6,.heading-6 {
 }
 
 p {
-	margin: 0 0 gutter(1);
+	margin: 0 0 r(1);
+}
+
+html,body {
+	height: 100%;
+	min-height: 100%; 
+	overflow: hidden;
+}
+
+body:before {
+	@include animation(bg 30s ease infinite alternate);
+	@include background-image(radial-gradient(#410e5b, #072c71, #5e0a31, #270a5e));
+	@include transform-origin(50%);
+	@include position(absolute, 0);
+	background-position: center;
+	display: block;
+	content: " ";
+	z-index: -1;
+}
+
+.site {
+	text-align: center;
+	color: $white;
+	position: relative;
+	height: 100%;
+	z-index: 1;
+	&:before {
+		height: 100%;
+		width: 1%;
+		content: " ";
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.wrap {
+	//@include animation(grow 120s ease infinite);
+	max-width: 90%;
+	padding: 0 r(2);
+	margin: 0 auto;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+.hero-title {
+	//@include animation(expand 120s ease infinite alternate);
+	margin-bottom: r(6);
+	font-weight: 300;
+	a {
+		display: block;
+	}
+	@include mq(max, 640px) {
+		@include font-size(30, 36);
+	}
+}
+
+p {
+	@include font-size(25, true);
+	@include mq(max, 640px) {
+		@include font-size(18, true);
+	}
+}
+
+a {
+	font-weight: 700;
+	color: $white;
+	text-decoration: none;
 }
 
 p,li {}

@@ -14,8 +14,9 @@ var gulpif 				= require('gulp-if');
 gulp.task('watch', function() {
 	gulp.watch(config.sass.watch,   ['sass']);
 	gulp.watch(config.scripts.src, ['scripts']);
-	gulp.watch(config.haml.src, ['haml']);
-	gulp.watch(config.html.build, ['html']);
+	//gulp.watch(config.haml.src, ['haml']);
+	//gulp.watch(config.html.build, ['html']);
+	gulp.watch(config.jade.src, ['jade']);
 	gulp.watch(config.sprites.data, ['sprite']);
 	gulp.watch(config.images.src, ['images']);
 });

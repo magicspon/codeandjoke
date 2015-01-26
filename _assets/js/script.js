@@ -1,3 +1,34 @@
+/**
+ * Create module for configuring loading external fonts
+ * @module WebFontConfig
+ */
+var html = document.getElementsByTagName('html')[0];
+html.className += '  wf-loading';
+setTimeout(function() {
+  html.className = html.className.replace(' wf-loading', ' wf-fail');
+}, 1500);
+
+ 
+var WebFontConfig = {
+    typekit: {
+      id: 'loy5med'
+    }
+};
+
+/** 
+ * Load external fonts
+ */
+(function() {
+  "use strict";
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s); 
+})();
+
 /** 
  * Method used to create an object based on input string
  * @method namespace
@@ -36,6 +67,11 @@ cj.play = {
        "use strict";
        this.getVars();
    	// eg  this.doShowcase();
+   },
+
+
+   doText: function() {
+
    },
    // your functions
    doShowcase: function() {

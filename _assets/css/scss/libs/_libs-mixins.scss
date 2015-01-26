@@ -12,15 +12,11 @@
 
 @mixin font-type($font: 'base') {
   @if $font == bold {
-    font-family:"FS Albert Web Bold", sans-serif; font-weight:bold; 
-  } @else if $font == italic {
-    font-family:"FS Albert Web Light Italic", sans-serif; font-weight:200; font-style:italic; 
-  } @else if $font == thin {
-    font-family:"FS Albert Web Thin", sans-serif; font-weight:100;
+    font-weight:700; 
   } @else if $font == light {
-    font-family:"FS Albert Web Light", sans-serif; font-weight:200; 
+    font-weight:300; 
   } @else  {
-    font-family:"FS Albert Web Light", sans-serif; font-weight:200;
+    font-weight:400; 
   }
 }
 
@@ -37,6 +33,33 @@
     }
   }
 }
+
+@mixin load-font($selector: '.site, .size:before') {
+
+  .js {
+    &.wf-loading,
+    &.js-inactive {
+      #{$selector} {
+        opacity: 0;
+      }
+    }
+
+
+    &.wf-fail,
+    &.wf-active {
+      #{$selector} {
+        opacity: 1;
+      }
+    }
+
+    #{$selector} {
+      @include transition(opacity .75s);
+      opacity: 0;
+    }
+  }
+}
+
+@include load-font();
 
 // Layout
 
