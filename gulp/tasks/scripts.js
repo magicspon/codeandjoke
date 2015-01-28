@@ -17,6 +17,8 @@ var env 				 = require('../config').env;
 
 
 gulp.task('scripts', function() {
+
+	console.log(env);
   return gulp.src(config.src)
     .pipe(gulpif(env == 'dev', sourcemaps.init()))
     .pipe(gulpif(env == 'live', uglify()))

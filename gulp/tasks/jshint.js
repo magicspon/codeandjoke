@@ -12,7 +12,6 @@ var gulpif			 = require('gulp-if');
 var notify 			 = require('gulp-notify');
 var handleErrors = require('../util/handleErrors');
 var config       = require('../config').scripts;
-var env 				 = require('../config').env	 
 
 
 gulp.task('jshint', function() {

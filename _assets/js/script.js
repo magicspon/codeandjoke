@@ -51,9 +51,9 @@ function namespace(namespaceString) {
     }
     return parent;
 }
-
  
 var cj = namespace('cj.Application.Site');
+
 
 // declare our JS framework, HT @jackfranklin
 cj.play = {
@@ -67,10 +67,41 @@ cj.play = {
        "use strict";
        this.getVars();
    	// eg  this.doShowcase();
+        this.doText();
    },
 
 
    doText: function() {
+
+    var list = [
+      '"colder darker jumper drunker"',
+      '"lorem ipsum scrabble generator"',
+      '"we all have to do something, over there"',
+      '"will this do"',
+      'console'
+    ];
+    /**
+     * Returns a random integer between min (inclusive) and max (inclusive)
+     * Using Math.round() will give you a non-uniform distribution! 
+     */
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    var count = list.length - 1; // 0 based index
+    var random = getRandomInt(0,count);
+    var name = list[random]; 
+    if(name === 'console') {
+      var output = 'console.log((([]==+[])+[])[+[]] + "[object Window]"[13] + (+[][[]]+[])[++[[]][+[]]] + (([]==+[])+[])[+[]])';
+      $('.hero-title').addClass('code');
+      $('.hero-title a').text(output);
+
+    } else {
+      $('.hero-title a').text(list[random]);
+
+    }
+
+
 
    },
    // your functions

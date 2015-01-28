@@ -16,7 +16,7 @@ gulp.task('watch', function() {
 	gulp.watch(config.scripts.src, ['scripts']);
 	//gulp.watch(config.haml.src, ['haml']);
 	//gulp.watch(config.html.build, ['html']);
-	gulp.watch(config.jade.src, ['jade']);
+	gulp.watch(config.jade.watch, ['jade']);
 	gulp.watch(config.sprites.data, ['sprite']);
 	gulp.watch(config.images.src, ['images']);
 });

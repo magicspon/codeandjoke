@@ -4,16 +4,16 @@
 var assets = './_assets/', 
     build = './_build/',
     root = './',
-    env = 'dev',
-    outputStyle = 'expanded';
+    env = 'live',
+    outputStyle = 'compressed';
 /*
  * Update values based on environment
  */
-if(env === 'live') {
-    root = build;
-    outputStyle = 'compressed';
-    assets = build + '_assets/';
-}
+// if(env === 'live') {
+//     //root = build;
+//     outputStyle = 'compressed';
+//     //assets = build + '_assets/';
+// }
 /*
  * Site url used for page insights
  */
@@ -40,9 +40,9 @@ var AUTOPREFIXER_BROWSERS = [
 module.exports = {
 
   browserSync: {
-    
-    proxy: 'dev.codeandjoke.com',
-    notify: false
+        server: {
+            baseDir: "./"
+        }
   },
 
   sass: {
@@ -130,6 +130,7 @@ module.exports = {
 
   jade: {
     src: assets + 'jade/source/*.jade',
+    watch: assets + 'jade/source/**/*.jade',
     dest: root
   }
 

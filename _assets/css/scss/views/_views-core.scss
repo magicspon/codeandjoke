@@ -164,6 +164,10 @@ body:before {
 	@include mq(max, 640px) {
 		@include font-size(30, 36);
 	}
+
+	&.code {
+		@include font-size(30,40);
+	}
 }
 
 p {
